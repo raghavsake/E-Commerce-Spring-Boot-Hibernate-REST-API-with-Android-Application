@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.project.ecommerce">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="29"/>
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.ECommerce"
+        android:requestLegacyExternalStorage="true"
+        android:usesCleartextTraffic="true">
+        <activity
+            android:name=".view.SplashActivity"
+            android:theme="@style/NoActionBar"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.shortcuts"
+                android:resource="@xml/shortcuts" />
+        </activity>
+
+        <activity android:name="com.project.ecommerce.view.LoginActivity" />
+
+        <activity
+            android:name=".view.SignUpActivity" />
+
+        <activity
+            android:name=".view.ProductActivity"/>
+
+        <activity
+            android:name=".view.AllMobilesActivity"
+            android:label="@string/all_mobiles"
+            android:parentActivityName=".view.ProductActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".view.ProductActivity" />
+        </activity>
+
+        <activity android:name=".view.ShippingAddressActivity" />
+
+        <activity android:name=".view.OrderProductActivity" />
+        <activity
+            android:name=".view.CategoryActivity"
+            android:parentActivityName=".view.ProductActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".view.ProductActivity" />
+        </activity>
+        <activity
+        android:name=".view.AccountActivity"
+        android:label="@string/my_account"
+        android:parentActivityName=".view.ProductActivity"
+        android:theme="@style/AccountTheme">
+        <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".view.ProductActivity" />
+    </activity>
+
+        <activity
+            android:name=".view.OrdersActivity"
+            android:label="@string/orders"
+            android:parentActivityName=".view.ProductActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".view.ProductActivity" />
+        </activity>
+        <activity
+            android:name=".view.AllLaptopsActivity"
+            android:label="@string/all_laptops"
+            android:parentActivityName=".view.ProductActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".view.ProductActivity" />
+        </activity>
+        <activity
+            android:name=".view.PasswordActivity"
+            android:label="@string/change_password"
+            android:parentActivityName=".view.AccountActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".view.AccountActivity" />
+        </activity>
+        <activity
+            android:name=".view.StatusActivity"
+            android:label="@string/status"
+            android:parentActivityName=".view.OrdersActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".view.OrdersActivity" />
+        </activity>
+        <activity
+            android:name=".view.CartActivity"
+            android:label="@string/cart"
+            android:parentActivityName=".view.ProductActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".view.ProductActivity" />
+        </activity>
+
+        <activity android:name=".view.SearchActivity"/>
+        <activity android:name=".view.ResultActivity"/>
+
+        <activity
+            android:name=".view.DetailsActivity"
+            android:launchMode="singleTop"
+            android:parentActivityName=".view.AllMobilesActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".view.AllMobilesActivity" />
+        </activity>
+
+        <receiver android:name="com.project.ecommerce.reciever.NetworkChangeReceiver" />
+    </application>
+</manifest>
