@@ -124,7 +124,6 @@ public class ProductAdapter extends PagedListAdapter<Product, ProductAdapter.Pro
     };
 
     class ProductViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        // Create view instances
         private final ProductListItemBinding binding;
 
         private ProductViewHolder(ProductListItemBinding binding) {

@@ -118,7 +118,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             case R.id.textViewLogin:
                 goToLoginActivity();
                 break;
-            default: // Should not get here
+            default:
         }
     }
 

@@ -53,7 +53,6 @@ public class SearchActivity extends AppCompatActivity implements AdapterView.OnI
         binding.wordList.setOnItemClickListener(this);
         binding.wordList.setOnItemLongClickListener(this);
 
-        // Return a collection view of the values contained in this map
         list = new ArrayList<>(getWords(this).keySet());
 
         adapter = new WordAdapter(this,  list);
@@ -64,12 +63,10 @@ public class SearchActivity extends AppCompatActivity implements AdapterView.OnI
         binding.editQuery.addTextChangedListener(new TextWatcher() {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                // Do nothing
             }
 
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                // Do nothing
             }
 
             @Override
@@ -89,10 +86,8 @@ public class SearchActivity extends AppCompatActivity implements AdapterView.OnI
 
         binding.editQuery.setOnEditorActionListener((v, actionId, event) -> {
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                // Your piece of code on keyboard search click
                 Intent searchIntent = new Intent(SearchActivity.this, ResultActivity.class);
                 word = binding.editQuery.getText().toString().trim();
-                // Set Key with its specific key
                 setWord(getApplicationContext(), word, word);
                 searchIntent.putExtra(Constant.KEYWORD, word);
                 startActivity(searchIntent);
@@ -105,7 +100,6 @@ public class SearchActivity extends AppCompatActivity implements AdapterView.OnI
             if (event.getAction() == MotionEvent.ACTION_DOWN) {
 
                 if (event.getRawX() >= (binding.editQuery.getRight() - binding.editQuery.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
-                    // your action here
                     binding.editQuery.getText().clear();
                     return true;
                 }else if ((event.getRawX() + binding.editQuery.getPaddingLeft()) <= (binding.editQuery.getCompoundDrawables()[DRAWABLE_LEFT].getBounds().width() + binding.editQuery.getLeft())) {
@@ -129,7 +123,6 @@ public class SearchActivity extends AppCompatActivity implements AdapterView.OnI
 
     public Map<String, ?> getWords(Context context){
         sharedpreferences = context.getSharedPreferences(HISTORY_DATA, Context.MODE_PRIVATE);
-        // Returns a map containing a list of pairs key/value representing the preferences.
         return sharedpreferences.getAll();
     }
 
@@ -157,7 +150,6 @@ public class SearchActivity extends AppCompatActivity implements AdapterView.OnI
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Intent intent = new Intent(getApplicationContext(), ResultActivity.class);
-        // Send KEYWORD to ResultActivity
         intent.putExtra(Constant.KEYWORD, list.get(position));
         startActivity(intent);
     }
@@ -166,11 +158,8 @@ public class SearchActivity extends AppCompatActivity implements AdapterView.OnI
     @Override
     public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
         Log.v("long clicked","position: " + position);
-        // Get value of a specific position
         word = list.get(position);
-        // Set word as a key
         clearOneItemInSharedPreferences(word, getApplicationContext());
-        // Remove element from adapter
         adapter.remove(word);
         Toast.makeText(this, "Removed", Toast.LENGTH_SHORT).show();
         return true;
@@ -178,7 +167,6 @@ public class SearchActivity extends AppCompatActivity implements AdapterView.OnI
 
     private final SharedPreferences.OnSharedPreferenceChangeListener prefChangeListener = (sharedPreferences, key) -> {
         if (key.equals(word)) {
-            // Clear the adapter, then add list
             adapter.clear();
             list = new ArrayList<>(getWords(getApplicationContext()).keySet());
             adapter.addAll(list);

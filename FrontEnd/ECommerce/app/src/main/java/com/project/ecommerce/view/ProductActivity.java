@@ -381,7 +381,6 @@ public class ProductActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(Product product) {
         Intent intent = new Intent(ProductActivity.this, DetailsActivity.class);
-        // Pass an object of product class
         intent.putExtra(Constant.PRODUCT, (product));
         startActivity(intent);
     }

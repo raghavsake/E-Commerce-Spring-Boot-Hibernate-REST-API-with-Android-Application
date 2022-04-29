@@ -12,6 +12,7 @@ import com.project.ecommerce.R;
 import com.project.ecommerce.databinding.ActivityStatusBinding;
 import com.project.ecommerce.model.Order;
 import com.project.ecommerce.utils.Constant;
+import com.squareup.picasso.Picasso;
 
 
 public class StatusActivity extends AppCompatActivity implements View.OnClickListener {
@@ -23,7 +24,6 @@ public class StatusActivity extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         ActivityStatusBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_status);
 
-        // Receive Order object
         Intent intent = getIntent();
         Order order = (Order) intent.getSerializableExtra(Constant.ORDER);
 
@@ -37,6 +37,15 @@ public class StatusActivity extends AppCompatActivity implements View.OnClickLis
         binding.txtProductPrice.setText(String.valueOf(order.getProductPrice()));
         String status = getString(R.string.item, order.getOrderDateStatus());
         binding.orderStatus.setText(status);
+
+        String imageUrl =  "/1.jpeg";
+//        Glide.with(this)
+//                .load(imageUrl)
+//                .into(binding.imageOfProduct);
+
+        Picasso.with(this)
+                .load(Constant.LOCALHOST+imageUrl)
+                .into(binding.imgProductImage);
 
         binding.reOrder.setOnClickListener(this);
     }

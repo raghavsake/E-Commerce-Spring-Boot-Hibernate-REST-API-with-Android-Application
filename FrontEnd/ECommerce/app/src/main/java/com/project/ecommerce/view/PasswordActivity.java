@@ -52,7 +52,7 @@ public class PasswordActivity extends AppCompatActivity implements View.OnClickL
             case R.id.cancel:
                 finish();
                 break;
-            default: // Should not get here
+            default:
         }
     }
 

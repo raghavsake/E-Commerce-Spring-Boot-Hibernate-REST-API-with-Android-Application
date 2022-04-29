@@ -42,7 +42,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     @Override
     protected void onStart() {
         super.onStart();
-        // If user logged in, go directly to ProductActivity
         if (LoginUtils.getInstance(this).isLoggedIn()) {
             goToProductActivity();
         }

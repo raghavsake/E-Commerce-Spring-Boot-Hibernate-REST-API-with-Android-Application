@@ -47,12 +47,10 @@ public class DetailsActivity extends AppCompatActivity implements View.OnClickLi
 
 
     private void getProductDetails() {
-        // Receive the product object
         product = getIntent().getParcelableExtra(Constant.PRODUCT);
 
         Log.d(TAG, " isInCart " + product.isInCart());
 
-        // Set Custom ActionBar Layout
         ActionBar actionBar = getSupportActionBar();
         actionBar.setHomeButtonEnabled(true);
         actionBar.setDisplayShowCustomEnabled(true);

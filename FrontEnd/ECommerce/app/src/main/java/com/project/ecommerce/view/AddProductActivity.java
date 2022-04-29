@@ -84,7 +84,6 @@ public class AddProductActivity extends AppCompatActivity implements View.OnClic
         String supplierString = binding.txtSupplier.getText().toString().trim();
         String categoryString = binding.categorySpinner.getSelectedItem().toString().toLowerCase();
 
-        // Check if there are no empty values
         if (TextUtils.isEmpty(nameString) || TextUtils.isEmpty(priceString) ||
                 TextUtils.isEmpty(quantityString) || TextUtils.isEmpty(supplierString)
                 || TextUtils.isEmpty(categoryString)) {
@@ -104,7 +103,6 @@ public class AddProductActivity extends AppCompatActivity implements View.OnClic
             return;
         }
 
-        // Pathname
         File file = new File(pathname);
         RequestBody requestFile = RequestBody.create(MediaType.parse(IMAGE), file);
         MultipartBody.Part photo = MultipartBody.Part.createFormData("image", file.getName(), requestFile);

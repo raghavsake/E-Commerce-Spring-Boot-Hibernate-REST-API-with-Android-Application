@@ -58,7 +58,6 @@ public class AllLaptopsActivity extends AppCompatActivity implements ProductAdap
     @Override
     public void onClick(Product product) {
         Intent intent = new Intent(AllLaptopsActivity.this, DetailsActivity.class);
-        // Pass an object of product class
         intent.putExtra(Constant.PRODUCT, (product));
         startActivity(intent);
     }

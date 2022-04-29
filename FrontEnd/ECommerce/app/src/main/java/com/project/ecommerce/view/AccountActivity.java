@@ -32,6 +32,7 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle(getResources().getString(R.string.my_account));
+        actionBar.setBackgroundDrawable(getResources().getDrawable(R.drawable.gradient2));
 
         deleteUserViewModel = ViewModelProviders.of(this).get(DeleteUserViewModel.class);
 
@@ -81,7 +82,7 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
             case R.id.deleteAccount:
                 deleteAccount();
                 break;
-            default: // Should not get here
+            default:
         }
     }
 

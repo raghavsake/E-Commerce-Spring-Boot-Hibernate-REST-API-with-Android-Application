@@ -36,12 +36,7 @@ public class CartActivity extends AppCompatActivity {
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle(getResources().getString(com.project.ecommerce.R.string.cart));
-
-
-
-
         setUpRecyclerView();
-
         getProductsInCart();
     }
 

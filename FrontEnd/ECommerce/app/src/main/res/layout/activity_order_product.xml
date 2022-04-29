@@ -10,14 +10,14 @@
         tools:context=".view.OrderProductActivity">
 
         <TextView
-            android:id="@+id/card"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginStart="@dimen/dimen10dp"
-            android:layout_marginTop="@dimen/dimen10dp"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/dimen24dp"
+            android:paddingEnd="@dimen/dimen24dp"
             android:text="@string/add_a_credit_or_debit_card"
-            android:textColor="@color/colorAccent"
-            android:textSize="@dimen/dimen25sp" />
+            android:textColor="@color/black"
+            android:textSize="@dimen/dimen30sp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/nameOnCard"

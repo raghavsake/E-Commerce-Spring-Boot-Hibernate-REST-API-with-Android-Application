@@ -42,16 +42,13 @@ public class CategoryActivity extends AppCompatActivity implements ProductAdapte
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle(getResources().getString(R.string.app_name));
 
-        // This line shows Up button
         actionBar.setDisplayHomeAsUpEnabled(true);
 
         snack = Snackbar.make(findViewById(android.R.id.content), getResources().getString(R.string.no_internet_connection), Snackbar.LENGTH_INDEFINITE);
 
-        // Get Category from ProductActivity Intent
         Intent intent = getIntent();
         String category = intent.getStringExtra(Constant.CATEGORY);
 
-        // Update Toolbar
         getSupportActionBar().setTitle(category);
 
         int userID = LoginUtils.getInstance(this).getUserInfo().getId();
@@ -86,7 +83,6 @@ public class CategoryActivity extends AppCompatActivity implements ProductAdapte
     @Override
     public void onClick(Product product) {
         Intent intent = new Intent(CategoryActivity.this, DetailsActivity.class);
-        // Pass an object of product class
         intent.putExtra(Constant.PRODUCT, (product));
         startActivity(intent);
     }

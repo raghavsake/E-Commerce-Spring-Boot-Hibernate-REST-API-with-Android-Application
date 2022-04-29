@@ -57,7 +57,6 @@ public class OrdersActivity extends AppCompatActivity implements OrderAdapter.Or
     @Override
     public void onClick(Order order) {
         Intent intent = new Intent(OrdersActivity.this, StatusActivity.class);
-        // Pass an object of order class
         intent.putExtra(Constant.ORDER, (order));
         startActivity(intent);
     }

@@ -60,7 +60,6 @@ public class Product implements Parcelable {
         this.isInCart = isInCart ? 1 : 0;
     }
 
-    // Write the values to be saved to the `Parcel`.
     @Override
     public void writeToParcel(Parcel out, int flags) {
         out.writeInt(productId);
@@ -74,7 +73,6 @@ public class Product implements Parcelable {
         out.writeParcelable(mInfo, flags);
     }
 
-    // Retrieve the values written into the `Parcel`.
     private Product(Parcel in) {
         productId = in.readInt();
         productName = in.readString();
@@ -95,8 +93,6 @@ public class Product implements Parcelable {
     public static final Creator<Product> CREATOR
             = new Creator<Product>() {
 
-        // This simply calls our new constructor and
-        // passes along `Parcel`, and then returns the new object!
         @Override
         public Product createFromParcel(Parcel in) {
             return new Product(in);

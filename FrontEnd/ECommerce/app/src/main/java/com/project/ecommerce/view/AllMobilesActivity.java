@@ -43,14 +43,12 @@ public class AllMobilesActivity extends AppCompatActivity implements ProductAdap
     }
 
     private void setupRecyclerViews() {
-        // Mobiles
         binding.allMobilesRecyclerView.setLayoutManager(new GridLayoutManager(this, (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) ? 2 : 4));
         binding.allMobilesRecyclerView.setHasFixedSize(true);
         productAdapter = new ProductAdapter(this,this);
     }
 
     public void getAllMobiles() {
-        // Observe the productPagedList from ViewModel
         productViewModel.productPagedList.observe(this, products -> {
             productAdapter.submitList(products);
         });

@@ -67,7 +67,6 @@ public class ResultActivity extends AppCompatActivity {
 
                 searchAdapter = new SearchAdapter(getApplicationContext(), searchedList, product -> {
                     Intent intent = new Intent(ResultActivity.this, DetailsActivity.class);
-                    // Pass an object of product class
                     intent.putExtra(Constant.PRODUCT, product);
                     startActivity(intent);
                 },this);
